@@ -24,7 +24,7 @@ const server = http.createServer(app);
 // Socket.IO setup
 const io = new Server(server, {
   cors: {
-    origin: 'https://storied-muffin-bceac7.netlify.app',
+    origin: 'https://storied-muffin-bceac7.netlify.app','http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   },
@@ -32,7 +32,7 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: 'https://storied-muffin-bceac7.netlify.app',
+  origin: 'https://storied-muffin-bceac7.netlify.app','http://localhost:5173',
   credentials: true,
 }));
 app.use(express.json());
