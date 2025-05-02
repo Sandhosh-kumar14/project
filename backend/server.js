@@ -32,7 +32,7 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'FRONTEND_URL=https://storied-muffin-bceac7.netlify.app',
   credentials: true,
 }));
 app.use(express.json());
