@@ -15,7 +15,10 @@ import { verifySocketToken } from './middleware/auth.js';
 dotenv.config();
 
 
-
+const allowedOrigins = [
+  'https://storied-muffin-bceac7.netlify.app',
+  'http://localhost:5173',
+];
 
 // Create Express app
 const app = express();
@@ -24,7 +27,7 @@ const server = http.createServer(app);
 // Socket.IO setup
 const io = new Server(server, {
   cors: {
-    origin: 'https://storied-muffin-bceac7.netlify.app','http://localhost:5173',
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   },
@@ -32,7 +35,7 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: 'https://storied-muffin-bceac7.netlify.app','http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
 }));
 app.use(express.json());
